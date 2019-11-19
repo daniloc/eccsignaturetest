@@ -77,7 +77,6 @@ class SignedMessage: Codable {
             
         }
         
-        
         return false
     }
     

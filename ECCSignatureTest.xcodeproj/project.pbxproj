@@ -86,12 +86,12 @@
 			isa = PBXGroup;
 			children = (
 				9F2874FC238453D6006EF2EB /* AppDelegate.swift */,
+				9F287518238460E7006EF2EB /* SignedMessage.swift */,
+				9F28751E238462E8006EF2EB /* ec256pub.pem */,
 				9F2874FE238453D8006EF2EB /* Assets.xcassets */,
 				9F287500238453D8006EF2EB /* MainMenu.xib */,
 				9F287503238453D8006EF2EB /* Info.plist */,
-				9F287518238460E7006EF2EB /* SignedMessage.swift */,
 				9F287504238453D8006EF2EB /* ECCSignatureTest.entitlements */,
-				9F28751E238462E8006EF2EB /* ec256pub.pem */,
 			);
 			path = ECCSignatureTest;
 			sourceTree = "<group>";
