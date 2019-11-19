@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -10,9 +12,12 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application" customClass="NSApplication"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target">
+        <customObject id="-3" userLabel="Application"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ECCSignatureTest" customModuleProvider="target">
             <connections>
+                <outlet property="dateLabel" destination="wB4-Uu-wHE" id="8Gx-kn-Gsz"/>
+                <outlet property="signatureStatusLabel" destination="UjE-4j-NJk" id="Cxt-Hk-tOS"/>
+                <outlet property="textView" destination="Wgc-7V-s0h" id="tgh-aN-FWC"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -677,16 +682,74 @@
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="140" y="154"/>
         </menu>
         <window title="ECCSignatureTest" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="3440" height="1417"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wB4-Uu-wHE">
+                        <rect key="frame" x="18" y="306" width="444" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="pzd-BR-h7E">
+                            <font key="font" usesAppearanceFont="YES"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UjE-4j-NJk">
+                        <rect key="frame" x="18" y="330" width="444" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="8dS-JF-1Xa">
+                            <font key="font" metaFont="systemBold"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEg-IE-gco">
+                        <rect key="frame" x="20" y="20" width="440" height="278"/>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="tcs-ZS-QDx">
+                            <rect key="frame" x="0.0" y="0.0" width="440" height="278"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Wgc-7V-s0h">
+                                    <rect key="frame" x="0.0" y="0.0" width="440" height="278"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="440" height="278"/>
+                                    <size key="maxSize" width="451" height="10000000"/>
+                                    <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                </textView>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Z68-YF-HeZ">
+                            <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="6yB-5j-MyG">
+                            <rect key="frame" x="424" y="0.0" width="16" height="278"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="VEg-IE-gco" secondAttribute="bottom" constant="20" id="1G5-4w-stp"/>
+                    <constraint firstItem="wB4-Uu-wHE" firstAttribute="top" secondItem="UjE-4j-NJk" secondAttribute="bottom" constant="8" id="8wT-R0-FlL"/>
+                    <constraint firstItem="VEg-IE-gco" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="E1I-75-R8u"/>
+                    <constraint firstItem="wB4-Uu-wHE" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="V1z-kk-hKE"/>
+                    <constraint firstAttribute="trailing" secondItem="wB4-Uu-wHE" secondAttribute="trailing" constant="20" id="avx-UL-6lB"/>
+                    <constraint firstItem="UjE-4j-NJk" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="bBz-u1-UM9"/>
+                    <constraint firstAttribute="trailing" secondItem="UjE-4j-NJk" secondAttribute="trailing" constant="20" id="jFg-4U-5ME"/>
+                    <constraint firstItem="VEg-IE-gco" firstAttribute="top" secondItem="wB4-Uu-wHE" secondAttribute="bottom" constant="8" id="kcB-Ab-nxd"/>
+                    <constraint firstItem="UjE-4j-NJk" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="14" id="soB-3T-kWY"/>
+                    <constraint firstAttribute="trailing" secondItem="VEg-IE-gco" secondAttribute="trailing" constant="20" id="t95-AF-rcW"/>
+                </constraints>
             </view>
+            <point key="canvasLocation" x="159" y="432"/>
         </window>
     </objects>
 </document>

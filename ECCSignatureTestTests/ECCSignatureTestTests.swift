@@ -10,25 +10,42 @@ import XCTest
 @testable import ECCSignatureTest
 
 class ECCSignatureTestTests: XCTestCase {
+    
+    var testFile: SignedMessage!
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        do {
+            let path = Bundle.main.path(forResource: "test", ofType: "eccsignaturetest")
+            let data = try Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
+            testFile = try JSONDecoder().decode(SignedMessage.self, from: data)
+        } catch {
+            XCTAssertNil(error)
+        }
+
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testValidation() {
+        XCTAssertTrue(testFile.validate())
     }
+    
+    func testContentParsing() {
+        XCTAssertTrue(testFile.validate ())
+        
+        XCTAssertTrue(testFile.originalMessage == "I would like a green chile burrito.")
+        
+        let dateString = "2019-11-19T20:13:54.705Z"
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        let date = dateFormatter.date(from: dateString)
+        
+        XCTAssertTrue(date == testFile.date)
     }
 
 }

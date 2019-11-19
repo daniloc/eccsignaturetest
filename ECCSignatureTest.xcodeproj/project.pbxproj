@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,13 @@
 		9F2874FF238453D8006EF2EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F2874FE238453D8006EF2EB /* Assets.xcassets */; };
 		9F287502238453D8006EF2EB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F287500238453D8006EF2EB /* MainMenu.xib */; };
 		9F28750E238453D9006EF2EB /* ECCSignatureTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28750D238453D9006EF2EB /* ECCSignatureTestTests.swift */; };
+		9F287519238460E7006EF2EB /* SignedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F287518238460E7006EF2EB /* SignedMessage.swift */; };
+		9F28751A238460E7006EF2EB /* SignedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F287518238460E7006EF2EB /* SignedMessage.swift */; };
+		9F28751D238462C5006EF2EB /* CryptorECC in Frameworks */ = {isa = PBXBuildFile; productRef = 9F28751C238462C5006EF2EB /* CryptorECC */; };
+		9F28751F238462E8006EF2EB /* ec256pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9F28751E238462E8006EF2EB /* ec256pub.pem */; };
+		9F287520238462E8006EF2EB /* ec256pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9F28751E238462E8006EF2EB /* ec256pub.pem */; };
+		9F2875222384849F006EF2EB /* test.eccsignaturetest in Resources */ = {isa = PBXBuildFile; fileRef = 9F2875212384849F006EF2EB /* test.eccsignaturetest */; };
+		9F2875232384868D006EF2EB /* test.eccsignaturetest in Resources */ = {isa = PBXBuildFile; fileRef = 9F2875212384849F006EF2EB /* test.eccsignaturetest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +40,9 @@
 		9F287509238453D9006EF2EB /* ECCSignatureTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ECCSignatureTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F28750D238453D9006EF2EB /* ECCSignatureTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECCSignatureTestTests.swift; sourceTree = "<group>"; };
 		9F28750F238453D9006EF2EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F287518238460E7006EF2EB /* SignedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedMessage.swift; sourceTree = "<group>"; };
+		9F28751E238462E8006EF2EB /* ec256pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ec256pub.pem; sourceTree = "<group>"; };
+		9F2875212384849F006EF2EB /* test.eccsignaturetest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.eccsignaturetest; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F28751D238462C5006EF2EB /* CryptorECC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +89,9 @@
 				9F2874FE238453D8006EF2EB /* Assets.xcassets */,
 				9F287500238453D8006EF2EB /* MainMenu.xib */,
 				9F287503238453D8006EF2EB /* Info.plist */,
+				9F287518238460E7006EF2EB /* SignedMessage.swift */,
 				9F287504238453D8006EF2EB /* ECCSignatureTest.entitlements */,
+				9F28751E238462E8006EF2EB /* ec256pub.pem */,
 			);
 			path = ECCSignatureTest;
 			sourceTree = "<group>";
@@ -87,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				9F28750D238453D9006EF2EB /* ECCSignatureTestTests.swift */,
+				9F2875212384849F006EF2EB /* test.eccsignaturetest */,
 				9F28750F238453D9006EF2EB /* Info.plist */,
 			);
 			path = ECCSignatureTestTests;
@@ -108,6 +122,9 @@
 			dependencies = (
 			);
 			name = ECCSignatureTest;
+			packageProductDependencies = (
+				9F28751C238462C5006EF2EB /* CryptorECC */,
+			);
 			productName = ECCSignatureTest;
 			productReference = 9F2874F9238453D6006EF2EB /* ECCSignatureTest.app */;
 			productType = "com.apple.product-type.application";
@@ -158,6 +175,9 @@
 				Base,
 			);
 			mainGroup = 9F2874F0238453D6006EF2EB;
+			packageReferences = (
+				9F28751B238462C5006EF2EB /* XCRemoteSwiftPackageReference "BlueECC" */,
+			);
 			productRefGroup = 9F2874FA238453D6006EF2EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -173,7 +193,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F2875232384868D006EF2EB /* test.eccsignaturetest in Resources */,
 				9F2874FF238453D8006EF2EB /* Assets.xcassets in Resources */,
+				9F28751F238462E8006EF2EB /* ec256pub.pem in Resources */,
 				9F287502238453D8006EF2EB /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +204,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F287520238462E8006EF2EB /* ec256pub.pem in Resources */,
+				9F2875222384849F006EF2EB /* test.eccsignaturetest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F2874FD238453D6006EF2EB /* AppDelegate.swift in Sources */,
+				9F287519238460E7006EF2EB /* SignedMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F28750E238453D9006EF2EB /* ECCSignatureTestTests.swift in Sources */,
+				9F28751A238460E7006EF2EB /* SignedMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +480,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9F28751B238462C5006EF2EB /* XCRemoteSwiftPackageReference "BlueECC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/IBM-Swift/BlueECC.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9F28751C238462C5006EF2EB /* CryptorECC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F28751B238462C5006EF2EB /* XCRemoteSwiftPackageReference "BlueECC" */;
+			productName = CryptorECC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9F2874F1238453D6006EF2EB /* Project object */;
 }
